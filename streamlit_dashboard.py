@@ -25,7 +25,7 @@ with row1[0]:
    container = st.container(border=True)
    container.write("Total Inactive Population by Year and Sex.")
    fig = px.line(grouped_inactive, x='year', y='total_inactive_population', color='sex')
-   st.plotly_chart(fig, use_container_width=True)
+   container.plotly_chart(fig, use_container_width=True)
 
 with row2[0]:
    grouped_inactiveTotal = emp_df.groupby(['sex'])['total_inactive_population'].sum().reset_index()
