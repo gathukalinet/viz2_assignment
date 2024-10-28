@@ -35,17 +35,17 @@ with row2[0]:
    container.write("Total Inactive Population by Sex.")
    fig1 =px.pie(grouped_inactive, values='total_inactive_population', names='sex', color='sex', 
        labels={'sex': 'sex', 'total_inactive_population': 'total_inactive_population'})
-   st.plotly_chart(fig1,use_container_width=True)
+   container.plotly_chart(fig1,use_container_width=True)
 
 with row1[1]:
    
    grouped_unemployed=emp_df.groupby(['year', 'sex'])['total_unemployed_population'].sum().reset_index()
    grouped_unemployed['total_unemployed_population'] = grouped_unemployed['total_unemployed_population'] / 1000000
    
-   container = st.container(border=True)
+   container = st.container(border=True, height=50)
    container.write("Total Unemployed Population by Year and Sex.")
    fig2 = px.line(grouped_unemployed, x='year', y='total_unemployed_population', color='sex')
-   st.plotly_chart(fig2, use_container_width=True)
+   container.plotly_chart(fig2, use_container_width=True)
 
 with row2[1]:
    grouped_unemployedTotal = emp_df.groupby(['sex'])['total_unemployed_population'].sum().reset_index()
@@ -55,7 +55,7 @@ with row2[1]:
    container.write("Total Unemployed Population by Sex.")
    fig3 = px.pie(grouped_unemployed, values='total_unemployed_population', names='sex', color='sex', 
        labels={'sex': 'sex', 'total_unemployed_population': 'total_unemployed_population'})
-   st.plotly_chart(fig3, use_container_width=True)
+   container.plotly_chart(fig3, use_container_width=True)
 
 with row1[2]:
    
@@ -65,7 +65,7 @@ with row1[2]:
    container = st.container(border=True)
    container.write("Total Employed Population by Year and Sex.")
    fig4 = px.line(grouped_employed, x='year', y='total_employed_population', color='sex')
-   st.plotly_chart(fig4, use_container_width=True)
+   container.plotly_chart(fig4, use_container_width=True)
 
 with row2[2]:
    grouped_employedTotal=emp_df.groupby(['sex'])['total_employed_population'].sum().reset_index()
@@ -75,7 +75,7 @@ with row2[2]:
    container.write("Total Employed Population by Sex.")
    fig5 = px.pie(grouped_employed, values='total_employed_population', names='sex', color='sex', 
        labels={'sex': 'sex', 'total_employed_population': 'total_employed_population'})
-   st.plotly_chart(fig5, use_container_width=True)   
+   container.plotly_chart(fig5, use_container_width=True)   
 
 
 st.title("Employment Status by Education Level in Kenya")
