@@ -97,12 +97,18 @@ with row1[0]:
    container.plotly_chart(fig6, use_container_width=True)
 
 with row1[1]:
+    df_grouped1 = emp_df.groupby(['year', 'sex'])[['total_inactive_population', 'total_unemployed_population', 'total_employed_population',
+                                              'Basic_unemployment','Intermediate_unemployment',
+                                              'Advanced_unemployment','age_group']].sum().reset_index()
     container = st.container(border=True)
     container.write("Total Intermediate Education by Sex.")
     fig7 = px.bar(df_grouped1, x='year', y='Intermediate_unemployement', color='sex')
     container.plotly_chart(fig7, use_container_width=True)
 
 with row1[2]:
+    df_grouped1 = emp_df.groupby(['year', 'sex'])[['total_inactive_population', 'total_unemployed_population', 'total_employed_population',
+                                              'Basic_unemployment','Intermediate_unemployment',
+                                              'Advanced_unemployment','age_group']].sum().reset_index()
     container = st.container(border=True)
     container.write("Total Advanced Education by Sex.")
     fig8 = px.bar(df_grouped1, x='year', y='Advanced_unemployment', color='sex')
