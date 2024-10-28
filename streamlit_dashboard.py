@@ -16,7 +16,7 @@ st.title("Employment Trends Analysis in Kenya ")
 
 col1, col2, col3 = st.columns(3)
 
-with col1(use_container_width=True):
+with col1:
    st.write("Total Inactive Population by Year and Sex.")
 
    grouped_inactive = emp_df.groupby(['year', 'sex'])['total_inactive_population'].sum().reset_index()
@@ -34,7 +34,7 @@ with col1(use_container_width=True):
        labels={'sex': 'sex', 'total_inactive_population': 'total_inactive_population'})
    st.plotly_chart(fig1,use_container_width=True)
 
-with col2(use_container_width=True):
+with col2:
    st.write("Total Unemployed Population by Year and Sex.")
 
    grouped_unemployed=emp_df.groupby(['year', 'sex'])['total_unemployed_population'].sum().reset_index()
@@ -52,7 +52,7 @@ with col2(use_container_width=True):
        labels={'sex': 'sex', 'total_unemployed_population': 'total_unemployed_population'})
    st.plotly_chart(fig3, use_container_width=True)
 
-with col3(use_container_width=True):
+with col3:
    st.write("Total Employed Population by Year and Sex.")
 
    grouped_employed=emp_df.groupby(['year', 'sex'])['total_employed_population'].sum().reset_index()
