@@ -118,7 +118,7 @@ with row2[0]:
     container = st.container(border=True)
     container.write("Total Basic Education by Age Group.")
     fig9 = px.pie(emp_df, values='Basic_unemployment',names='age_group', color='age_group', hole=0.5)
-    container.plotly_chart(fig8, use_container_width=True)
+    container.plotly_chart(fig9, use_container_width=True)
 
 with row2[1]:
     container = st.container(border=True)
