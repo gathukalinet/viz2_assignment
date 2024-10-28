@@ -23,7 +23,7 @@ with col1(use_container_width=True):
    grouped_inactive['total_inactive_population'] = grouped_inactive['total_inactive_population'] / 1000000
 
    fig = px.line(grouped_inactive, x='year', y='total_inactive_population', color='sex')
-   st.plotly_chart(fig)
+   st.plotly_chart(fig, use_container_width=True)
 
    grouped_inactiveTotal = emp_df.groupby(['sex'])['total_inactive_population'].sum().reset_index()
    grouped_inactiveTotal['total_inactive_population'] = grouped_inactiveTotal['total_inactive_population'] / 1000000
@@ -32,7 +32,7 @@ with col1(use_container_width=True):
 
    fig1 =px.pie(grouped_inactive, values='total_inactive_population', names='sex', color='sex', 
        labels={'sex': 'sex', 'total_inactive_population': 'total_inactive_population'})
-   st.plotly_chart(fig1)
+   st.plotly_chart(fig1,use_container_width=True)
 
 with col2(use_container_width=True):
    st.write("Total Unemployed Population by Year and Sex.")
@@ -41,7 +41,7 @@ with col2(use_container_width=True):
    grouped_unemployed['total_unemployed_population'] = grouped_unemployed['total_unemployed_population'] / 1000000
 
    fig2 = px.line(grouped_unemployed, x='year', y='total_unemployed_population', color='sex')
-   st.plotly_chart(fig2)
+   st.plotly_chart(fig2, use_container_width=True)
 
    grouped_unemployedTotal = emp_df.groupby(['sex'])['total_unemployed_population'].sum().reset_index()
    grouped_unemployedTotal['total_unemployed_population'] = grouped_unemployedTotal['total_unemployed_population'] / 1000000
@@ -50,7 +50,7 @@ with col2(use_container_width=True):
 
    fig3 = px.pie(grouped_unemployed, values='total_unemployed_population', names='sex', color='sex', 
        labels={'sex': 'sex', 'total_unemployed_population': 'total_unemployed_population'})
-   st.plotly_chart(fig3)
+   st.plotly_chart(fig3, use_container_width=True)
 
 with col3(use_container_width=True):
    st.write("Total Employed Population by Year and Sex.")
@@ -59,7 +59,7 @@ with col3(use_container_width=True):
    grouped_employed['total_employed_population'] = grouped_employed['total_employed_population'] / 1000000
 
    fig4 = px.line(grouped_employed, x='year', y='total_employed_population', color='sex')
-   st.plotly_chart(fig4)
+   st.plotly_chart(fig4, use_container_width=True)
 
    grouped_employedTotal=emp_df.groupby(['sex'])['total_employed_population'].sum().reset_index()
    grouped_employedTotal['total_employed_population'] = grouped_employedTotal['total_employed_population'] / 1000000
@@ -68,6 +68,6 @@ with col3(use_container_width=True):
 
    fig5 = px.pie(grouped_employed, values='total_employed_population', names='sex', color='sex', 
        labels={'sex': 'sex', 'total_employed_population': 'total_employed_population'})
-   st.plotly_chart(fig5)   
+   st.plotly_chart(fig5, use_container_width=True)   
 
 
