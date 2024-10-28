@@ -11,6 +11,9 @@ def load_data():
 emp_df = load_data()
 
 # Simple Streamlit app using Plotly
+
+st.set_page_config(layout="wide")
+
 st.title("Employment Trends Analysis in Kenya ")
 
 
@@ -42,7 +45,7 @@ with row1[1]:
    grouped_unemployed=emp_df.groupby(['year', 'sex'])['total_unemployed_population'].sum().reset_index()
    grouped_unemployed['total_unemployed_population'] = grouped_unemployed['total_unemployed_population'] / 1000000
    
-   container = st.container(border=True, height=50)
+   container = st.container(border=True)
    container.write("Total Unemployed Population by Year and Sex.")
    fig2 = px.line(grouped_unemployed, x='year', y='total_unemployed_population', color='sex')
    container.plotly_chart(fig2, use_container_width=True)
@@ -80,5 +83,26 @@ with row2[2]:
 
 st.title("Employment Status by Education Level in Kenya")
 
+row1 = st.columns(3)
+row2 = st.columns(3)
 
+with row1[0]:
+   df_grouped1 = emp_df.groupby(['year', 'sex'])[['total_inactive_population', 'total_unemployed_population', 'total_employed_population',
+                                              'Basic_unemployment','Intermediate_unemployment',
+                                              'Advanced_unemployment','age_group']].sum().reset_index()
+   container = st.container(border=True)
+   container.write("Total Basic Education by Sex.")
+   fig6 = px.bar(df_grouped1, x='year', y='Basic_unemployment', color='sex')
+   container.plotly_chart(fig6, use_container_width=True)
 
+with row1[1]:
+    container = st.container(border=True)
+    container.write("Total Intermediate Education by Sex.")
+    fig7 = px.bar(df_grouped1, x='year', y='Intermediate_unemployement', color='sex')
+    container.plotly_chart(fig7, use_container_width=True)
+
+with row1[2]:
+    container = st.container(border=True)
+    container.write("Total Advanced Education by Sex.")
+    fig8 = px.bar(df_grouped1, x='year', y='Advanced_unemployment', color='sex')
+    container.plotly_chart(fig8, use_container_width=True)
