@@ -67,7 +67,7 @@ with row1[2]:
    fig4 = px.line(grouped_employed, x='year', y='total_employed_population', color='sex')
    st.plotly_chart(fig4, use_container_width=True)
 
-with row2[2]
+with row2[2]:
    grouped_employedTotal=emp_df.groupby(['sex'])['total_employed_population'].sum().reset_index()
    grouped_employedTotal['total_employed_population'] = grouped_employedTotal['total_employed_population'] / 1000000
 
