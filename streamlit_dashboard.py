@@ -2,6 +2,7 @@ import pandas as pd
 import streamlit as st
 import plotly.express as px
 
+st.set_page_config(layout="wide")
 
 # Load the dataset
 @st.cache_data
@@ -12,7 +13,7 @@ emp_df = load_data()
 
 # Simple Streamlit app using Plotly
 
-st.set_page_config(layout="wide")
+
 
 st.title("Employment Trends Analysis in Kenya ")
 
