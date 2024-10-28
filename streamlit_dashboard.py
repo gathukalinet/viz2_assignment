@@ -14,7 +14,7 @@ emp_df = load_data()
 st.title("Employment Trends Analysis in Kenya ")
 
 
-col1, col2, col3 = st.columns(3)
+col1, col2, col3 = st.columns((20,1,1))
 
 with col1:
    st.write("Total Inactive Population by Year and Sex.")
