@@ -19,3 +19,4 @@ grouped_inactive['total_inactive_population'] = grouped_inactive['total_inactive
 
 fig = px.line(grouped_inactive, x='year', y='total_inactive_population', color='sex')
 st.plotly_chart(fig)
+git 
