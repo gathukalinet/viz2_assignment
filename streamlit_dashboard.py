@@ -6,7 +6,7 @@ import plotly.express as px
 # Load the dataset
 @st.cache_data
 def load_data():
-    return pd.read_csv(r'C:\Users\User\Desktop\Streamlit and Dash Projects\Visualizations2 Assignment\dataset.csv')
+    return pd.read_csv('C:\Users\User\Desktop\Streamlit and Dash Projects\Visualizations2 Assignment\dataset.csv')
 
 data = load_data()
 
