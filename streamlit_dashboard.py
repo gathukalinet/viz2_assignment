@@ -102,7 +102,7 @@ with row1[1]:
                                               'Advanced_unemployment','age_group']].sum().reset_index()
     container = st.container(border=True)
     container.write("Total Intermediate Education by Sex.")
-    fig7 = px.bar(df_grouped1, x='year', y='Intermediate_unemployement', color='sex')
+    fig7 = px.bar(df_grouped1, x='year', y='Intermediate_unemployment', color='sex')
     container.plotly_chart(fig7, use_container_width=True)
 
 with row1[2]:
