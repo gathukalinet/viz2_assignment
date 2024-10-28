@@ -24,7 +24,7 @@ row2 = st.columns(3)
 
 with row1[0]:
    grouped_inactive = emp_df.groupby(['year', 'sex'])['total_inactive_population'].sum().reset_index()
-   grouped_inactive['total_inactive_population'] = grouped_inactive['total_inactive_population'] / 1000000
+  
 
    container = st.container(border=True)
    container.write("Total Inactive Population by Year and Sex.")
@@ -33,7 +33,7 @@ with row1[0]:
 
 with row2[0]:
    grouped_inactiveTotal = emp_df.groupby(['sex'])['total_inactive_population'].sum().reset_index()
-   grouped_inactiveTotal['total_inactive_population'] = grouped_inactiveTotal['total_inactive_population'] / 100000
+   
 
    container = st.container(border=True)
    container.write("Total Inactive Population by Sex.")
@@ -44,7 +44,7 @@ with row2[0]:
 with row1[1]:
    
    grouped_unemployed=emp_df.groupby(['year', 'sex'])['total_unemployed_population'].sum().reset_index()
-   grouped_unemployed['total_unemployed_population'] = grouped_unemployed['total_unemployed_population'] / 1000000
+   
    
    container = st.container(border=True)
    container.write("Total Unemployed Population by Year and Sex.")
@@ -53,7 +53,7 @@ with row1[1]:
 
 with row2[1]:
    grouped_unemployedTotal = emp_df.groupby(['sex'])['total_unemployed_population'].sum().reset_index()
-   grouped_unemployedTotal['total_unemployed_population'] = grouped_unemployedTotal['total_unemployed_population'] / 1000000
+  
    
    container = st.container(border=True)
    container.write("Total Unemployed Population by Sex.")
@@ -64,7 +64,7 @@ with row2[1]:
 with row1[2]:
    
    grouped_employed=emp_df.groupby(['year', 'sex'])['total_employed_population'].sum().reset_index()
-   grouped_employed['total_employed_population'] = grouped_employed['total_employed_population'] / 1000000
+   
 
    container = st.container(border=True)
    container.write("Total Employed Population by Year and Sex.")
@@ -73,7 +73,7 @@ with row1[2]:
 
 with row2[2]:
    grouped_employedTotal=emp_df.groupby(['sex'])['total_employed_population'].sum().reset_index()
-   grouped_employedTotal['total_employed_population'] = grouped_employedTotal['total_employed_population'] / 1000000
+   
 
    container = st.container(border=True)
    container.write("Total Employed Population by Sex.")
@@ -82,7 +82,7 @@ with row2[2]:
    container.plotly_chart(fig5, use_container_width=True)   
 
 
-st.title("Employment Status by Education Level in Kenya")
+st.title("Education Level by Year and Age Groups Kenya")
 
 row1 = st.columns(3)
 row2 = st.columns(3)
@@ -113,3 +113,22 @@ with row1[2]:
     container.write("Total Advanced Education by Sex.")
     fig8 = px.bar(df_grouped1, x='year', y='Advanced_unemployment', color='sex')
     container.plotly_chart(fig8, use_container_width=True)
+
+with row2[0]:
+    container = st.container(border=True)
+    container.write("Total Basic Education by Age Group.")
+    fig9 = px.pie(emp_df, values='Basic_unemployment',names='age_group', color='age_group', hole=0.5)
+    container.plotly_chart(fig8, use_container_width=True)
+
+with row2[1]:
+    container = st.container(border=True)
+    container.write("Total Intermediate Education by Age Group.")
+    fig10 = px.pie(emp_df, values='Intermediate_unemployment',names='age_group', color='age_group', hole=0.5)
+    container.plotly_chart(fig10, use_container_width=True)
+
+with row2[2]:
+    container = st.container(border=True)
+    container.write("Total Advanced Education by Age Group.")
+    fig11 = px.pie(emp_df, values='Advanced_unemployment',names='age_group', color='age_group', hole=0.5)
+    container.plotly_chart(fig11, use_container_width=True)
+   
