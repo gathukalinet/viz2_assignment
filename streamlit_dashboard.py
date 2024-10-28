@@ -14,9 +14,10 @@ emp_df = load_data()
 st.title("Employment Trends Analysis in Kenya ")
 
 
-col1, col2, col3 = st.columns((5,5,5))
+col1, col2, col3 = st.columns([0.3,0.3,0.3])
 
 with col1:
+   st.title('Total Inactive Population')
    grouped_inactive = emp_df.groupby(['year', 'sex'])['total_inactive_population'].sum().reset_index()
    grouped_inactive['total_inactive_population'] = grouped_inactive['total_inactive_population'] / 1000000
    st.write("Total Inactive Population by Year and Sex.")
@@ -32,6 +33,7 @@ with col1:
    st.plotly_chart(fig1,use_container_width=True)
 
 with col2:
+   st.title('Total Unemployed Population')
    grouped_unemployed=emp_df.groupby(['year', 'sex'])['total_unemployed_population'].sum().reset_index()
    grouped_unemployed['total_unemployed_population'] = grouped_unemployed['total_unemployed_population'] / 1000000
 
@@ -48,6 +50,7 @@ with col2:
    st.plotly_chart(fig3, use_container_width=True)
 
 with col3:
+   st.title('Total Employed Population')
    grouped_employed=emp_df.groupby(['year', 'sex'])['total_employed_population'].sum().reset_index()
    grouped_employed['total_employed_population'] = grouped_employed['total_employed_population'] / 1000000
 
@@ -63,4 +66,11 @@ with col3:
        labels={'sex': 'sex', 'total_employed_population': 'total_employed_population'})
    st.plotly_chart(fig5, use_container_width=True)   
 
+
+st.title("Employment Status by Education Level in Kenya")
+
+col1, col2, col3 = st.columns([0.3,0.3,0.3])
+
+with col1:
+   st.title('Basic Education')
 
