@@ -44,7 +44,7 @@ pip freeze > requirements.txt
 ```
 streamlit run streamlit_dashboard.py
 ```
-
+Here's how my app looks like: https://viz2assignment-gxpp3msxdjj7e7tt6cpnsr.streamlit.app/
 ## Help
 
 * I had to pip install an nbformat version.
